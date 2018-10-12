@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>随机验证码</title>
+		<style>
+			.contain{
+				text-align: center;
+			}
+			.left{
+				display: inline-block;
+				width:150px;
+				height:30px;
+				font-size:25px;
+				text-align: center;
+				background: rgb(214, 227, 188);
+				border: 1px solid #000;
+				position: relative;
+			}
+			.right{
+				height:40px;
+				font-size:20px;
+				color:rgb(84, 141, 212);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="contain">
+			<div class="left">12d8R9</div>
+			<a href="#" class="right">看不清，换一张</a>
+		</div>
+		<script>
+			var num=document.getElementsByClassName('left')[0];
+			var btn=document.getElementsByClassName('right')[0];
+			var a='azxcvbnmsdfghjklqwertyuiopZXCVBNMASDFGHJKLQWERTYUIOP0123456789'
+			
+			btn.onclick=function(){
+				var result='';
+				for(var i=0;i<6;i++){
+					var index=Math.floor(Math.random()*62);
+					//随机出的字符串合并
+					result+=a[index];
+				}
+				num.innerText=result;
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<meta name="" content="" charset="utf-8"/>
+		<title> JS Testing </title>
+	</head>
+	<body>
+		<div style="float:left">
+			<ul style="margin-left:0px">
+				<li><input type="checkbox">北京</li>
+				<li><input type="checkbox">上海</li>
+				<li><input type="checkbox">广州</li>
+				<li><input type="checkbox">深圳</li>
+				<li><input type="checkbox">成都</li>
+			</ul>
+		</div> 
+		<button style="margin-left:20px;width:50px;">=></button>
+		<textarea style="margin-left:20px" rows="5" cols="30" id="output"></textarea> </body>
+	<script>
+		var lis = document.getElementsByTagName('li');
+		var btn = document.getElementsByTagName('button')[0];
+		var text = document.getElementsByTagName('textarea')[0];
+		
+
+		btn.onclick = function() {
+			var temp = [];
+			var num = 0;
+			for(var i = 0; i < lis.length; i++) {
+				console.log('1')
+				console.log(lis[i].getAttribute('checked'))
+				//用 getAttribute()检查'checked'不是true，而是null(?)
+				if(lis[i].childNodes[0].checked==true) {
+					temp[num] = lis[i].innerText;
+					num++;
+				}
+				text.innerText ="";
+				text.innerText = temp.join(',');
+			}
+			
+		}
+	</script>
+
+</html>
